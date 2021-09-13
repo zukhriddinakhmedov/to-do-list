@@ -1,6 +1,15 @@
-const ToDo = ({ todo }) => {
+import { FaTimes } from 'react-icons/fa'
+
+
+const ToDo = ({ todo, onDelete }) => {
     return (
-        <h5>task.text</h5>
+        <div className='todo'>
+            <h3>{todo.title}{' '}
+                <p>{` ${todo.completed ? 'Completed' : 'Not completed'}`} </p>
+                <FaTimes style={{ color: 'red', cursor: 'pointer' }}
+                    onClick={async () => await onDelete(todo.id)} />
+            </h3>
+        </div>
     )
 }
 export default ToDo

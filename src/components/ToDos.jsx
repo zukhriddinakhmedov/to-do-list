@@ -1,25 +1,20 @@
-import PropTypes from 'prop-types'
+import ToDo from './ToDo'
 
-const ToDos = ({ title, todos }) => {
+const ToDos = ({ todos, onDelete }) => {
     return (
-        <div>
-            <h1>{title}</h1>
+        <>
             {
-                todos.map((todo, id) => (
+                todos.map((todo, index) => (
                     <ToDo
-                        key={id}
+                        key={index}
                         todo={todo}
+                        onDelete={onDelete}
                     />
                 ))
             }
-        </div>
+        </>
     )
 }
-ToDos.defaultProps = {
-    title: 'To do list',
-}
-ToDos.propTypes = {
-    title: PropTypes.string
-}
+
 
 export default ToDos
